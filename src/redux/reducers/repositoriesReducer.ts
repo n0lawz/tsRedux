@@ -1,5 +1,6 @@
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
+
 // interface to describe the state 
 interface RepositoriesState {
     loading: boolean;
@@ -7,8 +8,14 @@ interface RepositoriesState {
     data: string[];
 }
 
+const initalState = {
+    loading: false,
+    error: null,
+    data: []
+}
 
-const reducer = (state: RepositoriesState, action: Action ): RepositoriesState => {
+
+const reducer = (state: RepositoriesState = initalState, action: Action ): RepositoriesState => {
     switch (action.type) {
         case ActionType.SEARCH_REPOSITORIES:
             return { loading: true, error: null, data: [] }
